@@ -30,7 +30,6 @@ function printNumbers(){
         };
 
         console.log(sum, "this is the sum");
- 
 
 
 
