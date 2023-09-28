@@ -1,4 +1,62 @@
-h1 {
+/* global */
+*{
+    margin: 0;
+    padding: 0;
+}
+html body{
+    margin: 0;
+}
+
+h1{
     color: blue;
     text-align: center;
+    margin: 0;
+    font-family: 'Times New Roman', Times, serif;
+}
+h2{
+    color: white;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+}
+main{
+    display: flex;
+    height: calc(100vh - 37px);
+}
+#list{
+    background-color: rgb(50, 32, 255);
+    flex: 3; /* how many sections to divid the screen (Key number is 12 */
+
+}
+#form{
+    background-color: rgb(121, 196, 250);
+    flex: 2;
+    padding: 10px 20px;
+}
+
+/* form */
+.flex-item{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-bottom: 15px;
+
+}
+label{
+    /* background-color: red; */
+    width: 50%;
+    text-align: left;
+}
+input, select, textarea{
+    /* background-color: green; */
+    width: 80%;
+    margin: 0;
+    padding: 3px;
+}
+#iImportant{
+    /* background-color: red; */
+    color: #1230f456;
+    font-size: 20px;
+}
+#iImportant:hover{
+    cursor: pointer;
 }
