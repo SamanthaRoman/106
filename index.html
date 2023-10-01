@@ -11,9 +11,16 @@
 </head>
 
 <body>
-    <h1>My Super Task Manager</h1>
+    <h1>Super Task Manager</h1>
     <main>
-        <section id="list">A</section>
+        <section id="list" jhkjh>
+            <div>
+                <button id="btnDetails" class="btn btn-dark">Show/Hide Form </button>
+            </div>
+            <div class="pending-task">
+                <!-- task to be rendered here  -->
+            </div>
+        </section>
         <section id="form">
             <h2>New Task</h2>
             <div><i id="iImportant" class="fa-regular fa-star"></i></div>
@@ -27,15 +34,15 @@
             </div>
             <div class="flex-item">
                 <label>Color</label>
-                <input id="txtStart" type="color" />
+                <input id="selColor" type="color" />
             </div>
             <div class="flex-item">
                 <label>Start Date</label>
-                <input id="txtStart" type="date" />
+                <input id="selDate" type="date" />
             </div>
             <div class="flex-item">
                 <label>Status</label>
-                <select id="selectStatus">
+                <select id="selStatus">
                     <option value="" disabled selected hidden>--- status ---</option>
                     <option value="new">New</option>
                     <option value="inProg">In progress</option>
@@ -69,7 +76,8 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         crossorigin="anonymous"></script>
-    <script src="./app.js"></script>
+    <script src="./scripts/task.js"></script>
+    <script src="./scripts/app.js"></script>
 </body>
 
 </html>

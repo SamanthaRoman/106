@@ -23,12 +23,12 @@ main{
     height: calc(100vh - 37px);
 }
 #list{
-    background-color: rgb(50, 32, 255);
-    flex: 3; /* how many sections to divid the screen (Key number is 12 */
+    background-color: rgb(255, 244, 235);
+    flex: 6; /* how many sections to divid the screen (Key number is 12 */
 
 }
 #form{
-    background-color: rgb(121, 196, 250);
+    background-color: rgb(255, 146, 213);
     flex: 2;
     padding: 10px 20px;
 }
@@ -59,4 +59,31 @@ input, select, textarea{
 }
 #iImportant:hover{
     cursor: pointer;
+}
+
+
+/* list section  */
+
+.task{
+    background-color: rgba(252, 177, 243, 0.306);
+    padding: 20px;
+    margin: 20px 10px;
+    display: flex;
+    width: 95%;
+    border-radius: 5px;;
+    margin-left: auto;
+    margin-right: auto;
+    /* align-items: center; */
+    text-align: center;
+    box-shadow: 2px 2px rgb(250, 190, 200);
+}
+.task-item{
+    /* background-color: red; */
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin: 5px;
+    text-align: left;
+    font-family: 'Times New Roman', Times, serif;
+    
 }
