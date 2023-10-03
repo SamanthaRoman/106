@@ -47,16 +47,68 @@ function saveTask(){
     console.log(title,desc,color,date,status,budget);
 
     // build your NEW object
-    let taskToSave = new Task(isImportant.value, title, desc, color.value, date, status.value, budget);
+    let taskToSave = new Task(isImportant, title, desc, color.value, date, status, budget);
     console.log(taskToSave);
-    allTasks.push(saveTask);
 
     // save to server (get connected to server)
+
+    $.ajax({
+        type: "POST", // what do we want to do? save something
+        url: "http://fsdiapi.azurewebsites.net/api/tasks/", // where at
+        data: JSON.stringify(taskToSave), // transform it into text (json)
+        contentType: "application/json", // specify the content type will be an application from json
+        success: function(response){
+            console.log(response);
+        },
+        error: function(error){
+            console.log(error);
+        },
+    });
 
     // display the task (get connected to server)
     // here we want to render the object in the list
     displayTask(taskToSave) // function only... 
+    clearForm();
 }
+
+  // create a function that retives everything from the server
+
+function loadTask(){
+    $.ajax({
+        type: "GET",
+        url: "http://fsdiapi.azurewebsites.net/api/tasks",
+        success: function(res){
+            let data = JSON.parse(res);
+            console.log(res), // EVERYTHING showing us text with json
+            console.log(data); // showing us java objects 
+            for (let i = 0; i < data.length; i++) {
+                let task = data[i];
+                if(task.name == "Samantha"){
+                    console.log(task, task.lenght)
+                    displayTask(task);
+                }
+                
+            }
+
+        },
+        error: function(error){
+            console.log(error);
+        },
+    })
+}
+
+// function to save task and clear form 
+// grab the id and put an empty value back into it.
+
+function clearForm(){
+$("#txtTitle").val("");
+$("#txtDescription").val("");
+$("#selColor").val("#000000");
+$("#selDate").val("");
+$("#selStatus").val("");
+$("#numBudget").val("");
+};
+
 
 let syntax = true;
 
@@ -66,15 +118,15 @@ function displayTask(task)
     if(isImportant){
         let syntax = `
         <div class="task">
-            <div class="task-item><i id="iImportant" class="fa-solid fa-star"></i></div>
-            <div class="task-item">
+            <div class="task-item imp-icon"><i class="fa-solid fa-star"></i></div>
+            <div class="task-item task-details-box">
                 <h5>Task: ${task.title}</h5>
                 <p>Details: ${task.description}</p>
             </div>
             <div class="task-item date-budget">
-                <label>Start Date: ${task.startDate}</label>
-                <label>Status: ${task.staus}</label>
-                <label>Budget: ${task.budget}</label>
+                <label>${task.startDate}</label>
+                <label>${task.status}</label>
+                <label>${task.budget}</label>
             </div>
         </div>
         `
@@ -83,14 +135,14 @@ function displayTask(task)
         let syntax = `
         <div class="task">
             <div class="task-item empty-cell"></div>
-            <div class="task-item">
+            <div class="task-item task-details-box">
                 <h5>Task: ${task.title}</h5>
                 <p>Details: ${task.description}</p>
             </div>
             <div class="task-item date-budget">
-                <label>Start Date: ${task.startDate}</label>
-                <label>Status: ${task.status}</label>
-                <label>Budget: ${task.budget}</label>
+                <label>${task.startDate}</label>
+                <label>${task.status}</label>
+                <label>${task.budget}</label>
             </div>
         </div>
         `
@@ -100,6 +152,23 @@ function displayTask(task)
 
 }
 console.log(displayTask);
+
+function testRequest(){
+    // don't forget commas...
+    // get, post, put, pach, delete
+    $.ajax({
+        type: "GET", // read something
+        url: "http://fsdiapi.azurewebsites.net/", // from where
+        success: function(response){ // what to do if succesful connection with server
+            console.log(response);
+        },
+        error: function(error){ // what to do if not succesful show us error code
+            console.log(error);
+        },
+    });
+}
+
+
 
 function init(){
     console.log("task manager");
@@ -111,6 +180,7 @@ function init(){
     $("#btnSave").click(saveTask);
     $("#iImportant").click(toggleImportant);
     $("#btnDetails").click(toggleDetails);
+    loadTask();
 
     // create function and name it toggle important, 
     // just conosle.log

@@ -4,9 +4,15 @@
     padding: 0;
 }
 html body{
+    background-image: url(../img/beach.jpg);
     margin: 0;
+    height: 100%;
 }
-
+body{
+    /* background-image: url(../img/beach.jpg); */
+    /* background-size: cover; */
+    background-repeat: none;
+}
 h1{
     color: blue;
     text-align: center;
@@ -19,17 +25,20 @@ h2{
     font-family: 'Times New Roman', Times, serif;
 }
 main{
+    /* background-image: url(../img/beach.jpg);
+    background-size: cover; */
     display: flex;
     height: calc(100vh - 37px);
+    
 }
 #list{
-    background-color: rgb(255, 244, 235);
+    /* background-color: rgb(255, 244, 235); */
     flex: 6; /* how many sections to divid the screen (Key number is 12 */
 
 }
 #form{
-    background-color: rgb(255, 146, 213);
-    flex: 2;
+    background-color: rgba(177, 197, 252, 0.463);
+    flex: 4;
     padding: 10px 20px;
 }
 
@@ -38,7 +47,7 @@ main{
     display: flex;
     flex-direction: column;
     margin-top: 10px;
-    margin-bottom: 15px;
+    margin-bottom: 3px;
 
 }
 label{
@@ -50,7 +59,7 @@ input, select, textarea{
     /* background-color: green; */
     width: 80%;
     margin: 0;
-    padding: 3px;
+    /* padding: 3px; */
 }
 #iImportant{
     /* background-color: red; */
@@ -65,25 +74,45 @@ input, select, textarea{
 /* list section  */
 
 .task{
-    background-color: rgba(252, 177, 243, 0.306);
-    padding: 20px;
-    margin: 20px 10px;
+    background-color: rgba(177, 197, 252, 0.526);
+    padding: 5px;
+    margin: 10px 10px;
     display: flex;
     width: 95%;
-    border-radius: 5px;;
+    border-radius: 5px;
     margin-left: auto;
     margin-right: auto;
-    /* align-items: center; */
+    align-items: center;
     text-align: center;
-    box-shadow: 2px 2px rgb(250, 190, 200);
+    box-shadow: 2px 2px rgb(190, 221, 250);
 }
 .task-item{
     /* background-color: red; */
     width: 90%;
     margin-left: auto;
     margin-right: auto;
-    margin: 5px;
+    padding-left: 2px;
+    margin: 2px;
     text-align: left;
-    font-family: 'Times New Roman', Times, serif;
-    
+}
+.imp-icon, .empty-cell{
+    /* background-color: red; */
+    width: 20%;
+    text-align: center;
+    color: blue;
+}
+.task-details-box{
+    width: 100%;
+    /* font-size: bold; */
+    line-height: 5px;
+}
+.task-details-box p{
+    font-style: italic;
+    text-indent: 10px;
+    line-height: normal;
+}
+#btnDetails{
+    background-color: rgba(0, 0, 255, 0.507);
+    width: 20%;
+    margin-left: 5px;
 }
